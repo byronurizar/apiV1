@@ -24,4 +24,4 @@ Route.group(()=>{
   Route.post('usuario/registro','UsuarioController.store');
   Route.post('usuario/login','UsuarioController.login');
   Route.get('proyecto','ProyectoController.index');
-}).prefix('api/v1/'); //para agrupar rutas
+}).prefix('api/v1/'); //para agr|upar rutas
