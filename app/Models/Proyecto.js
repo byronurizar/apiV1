@@ -4,8 +4,8 @@
 const Model = use('Model')
 
 class Proyecto extends Model {
-    up(){
-        
+    user() {
+        return this.belongsTo('App/Models/User')
     }
 }
 
