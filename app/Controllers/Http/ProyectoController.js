@@ -1,6 +1,7 @@
 'use strict'
 
 const Proyecto=use('App/Models/Proyecto');
+const autorizacionServie=use('App/Services/AutorizacionService');
 class ProyectoController {
     async index({auth}) //Devuelve todos los proyectos
     {
@@ -25,16 +26,9 @@ class ProyectoController {
 
         const proyecto=await Proyecto.find(id);
 
-        if(proyecto.user_id!=user.id){ //para no dejar eliminar si no es el dueño del proyecto
-            return response.status(403).json({
-                mensaje:"Usted no es dueño de este proyecto"
-            });
-        }else{
+        autorizacionServie.verificarPermiso(proyecto,user);
         await proyecto.delete();
         return proyecto;
-        }
-
-
     }
 }
 

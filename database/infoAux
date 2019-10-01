@@ -1,0 +1,2 @@
+Creación de excepciones para el manejo de errores
+adonis make:exception AccesoDenegado
