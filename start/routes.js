@@ -25,4 +25,5 @@ Route.group(()=>{
   Route.post('usuario/login','UsuarioController.login');
   Route.get('proyecto','ProyectoController.index').middleware('auth'); // para proter rutas se puede agregar directamente al grupo
   Route.post('proyecto','ProyectoController.create').middleware('auth');
+  Route.delete('proyecto/:id','ProyectoController.destroy').middleware('auth');
 }).prefix('api/v1/'); //para agr|upar rutas
