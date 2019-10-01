@@ -23,5 +23,6 @@ Route.get('/', () => {
 Route.group(()=>{
   Route.post('usuario/registro','UsuarioController.store');
   Route.post('usuario/login','UsuarioController.login');
-  Route.get('proyecto','ProyectoController.index');
+  Route.get('proyecto','ProyectoController.index').middleware('auth'); // para proter rutas se puede agregar directamente al grupo
+  Route.post('proyecto','ProyectoController.create').middleware('auth');
 }).prefix('api/v1/'); //para agr|upar rutas
