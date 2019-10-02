@@ -23,7 +23,15 @@ Route.get('/', () => {
 Route.group(()=>{
   Route.post('usuario/registro','UsuarioController.store');
   Route.post('usuario/login','UsuarioController.login');
+  //Rutas proyectos
   Route.get('proyecto','ProyectoController.index').middleware('auth'); // para proter rutas se puede agregar directamente al grupo
   Route.post('proyecto','ProyectoController.create').middleware('auth');
   Route.delete('proyecto/:id','ProyectoController.destroy').middleware('auth');
+  Route.patch('proyecto/:id','ProyectoController.update').middleware('auth');
+
+  //Rutas Tareas
+  Route.post('proyecto/:id/tarea','TareaController.create').middleware('auth');
+  Route.get('proyecto/:id/tarea','TareaController.index').middleware('auth');
+  Route.delete('tarea/:id','TareaController.destroy').middleware('auth');
+  Route.patch('tarea/:id','TareaController.update').middleware('auth');
 }).prefix('api/v1/'); //para agr|upar rutas
